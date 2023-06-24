@@ -3,7 +3,7 @@
 <h1>Tech job title</h1>
 
 <div>
-    <label for="month">Month of birth:</label>
+    <label for="month">What is your month of birth?</label>
     <select id="month" @onchange="Name1Changed">
         @for (var index1 = 0; index1 < names1.Count(); index1++)
         {
@@ -12,7 +12,7 @@
     </select>
 </div>
 <div>
-    <label for="firstNameFirstLetter">First letter of first name:</label>
+    <label for="firstNameFirstLetter">What is the first letter of your first name?</label>
     <select id="firstNameFirstLetter" @onchange="Name2Changed">
         @for (var index2 = 0; index2 < names2.Count(); index2++)
         {
@@ -21,7 +21,7 @@
     </select>
 </div>
 <div>
-    <label for="lastNameFirstLetter">First letter of last name:</label>
+    <label for="lastNameFirstLetter">What is the fFirst letter of your last name?</label>
     <select id="lastNameFirstLetter" @onchange="Name3Changed">
         @for (var index3 = 0; index3 < names3.Count(); index3++)
         {
