@@ -1,0 +1,70 @@
+﻿@page "/"
+
+<h1>Tech job title</h1>
+
+<div>
+    <label for="month">Month of birth:</label>
+    <select id="month" @onchange="Name1Changed">
+        @for (var index1 = 0; index1 < names1.Count(); index1++)
+        {
+            <option value="@index1.ToString()">@months[index1]</option>
+        }
+    </select>
+</div>
+<div>
+    <label for="firstNameFirstLetter">First letter of first name:</label>
+    <select id="firstNameFirstLetter" @onchange="Name2Changed">
+        @for (var index2 = 0; index2 < names2.Count(); index2++)
+        {
+            <option value="@index2">@letters[index2]</option>
+        }
+    </select>
+</div>
+<div>
+    <label for="lastNameFirstLetter">First letter of last name:</label>
+    <select id="lastNameFirstLetter" @onchange="Name3Changed">
+        @for (var index3 = 0; index3 < names3.Count(); index3++)
+        {
+            <option value="@index3">@letters[index3]</option>
+        }
+    </select>
+</div>
+<div style="margin-top:10px">
+    <strong>
+        @names1[indexPart1] @names2[indexPart2] @names3[indexPart3]
+    </strong>
+</div>
+@code {
+    private int indexPart1 = 0;
+    private int indexPart2 = 0;
+    private int indexPart3 = 0;
+    private char[] letters = Enumerable.Range(65, 26).Select(i => (char)i).ToArray();
+    private string[] months = new string[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+    private string[] names1 = new string[] { "Lead", "Senior", "Relational", "Human", "Customer", "Chief", "Corporate", "Dynamic", "Future", "Product", "National", "Internal" };
+    private string[] names2 = new string[] { "Program", "Brand", "Care", "Research", "Marketing", "Directives", "Implementation", "Integration", "Functionality", "Response", "Paradigm", "Tactics", "Identity", "Markets", "Group", "Resonance", "Applications", "Optimization", "Operations", "Infrastructure", "Intranet", "Communications", "Prospective", "Branding", "Quality", "Happiness" };
+    private string[] names3 = new string[] { "Supervisor", "Associate", "Executive", "Liason", "Officer", "Strategist", "Engineer", "Specialist", "Director", "Coordinator", "Administrator", "Architect", "Analyst", "Designer", "Planner", "Synergist", "Orchestrator", "Technician", "Developer", "Producer", "Consultant", "Assistant", "Facilitator", "Agent", "Representative", "Manager" };
+
+    private void Name1Changed(ChangeEventArgs e)
+    {
+        if (e.Value is not null)
+        {
+            indexPart1 = int.Parse((string)e.Value);
+        }
+    }
+
+    private void Name2Changed(ChangeEventArgs e)
+    {
+        if (e.Value is not null)
+        {
+            indexPart2 = int.Parse((string)e.Value);
+        }
+    }
+
+    private void Name3Changed(ChangeEventArgs e)
+    {
+        if (e.Value is not null)
+        {
+            indexPart3 = int.Parse((string)e.Value);
+        }
+    }
+}
